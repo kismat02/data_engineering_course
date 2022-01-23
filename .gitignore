@@ -1,6 +1,3 @@
-data/
-ny_taxi_postgres_data/
-*.json
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
