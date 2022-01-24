@@ -9,9 +9,13 @@ For this hw you need to run following scripts:
         -p 5432:5432 \
         --network=pg-network \
         --name pg-database \
-        postgres:13```
+        postgres:13
+    ```
+
 2. ```bash
-    docker build -t taxi_ingest:v001 .```
+    docker build -t taxi_ingest:v001 .
+    ```
+
 3. ```bash
     docker run -it \
     --network=pg-network \
@@ -22,7 +26,8 @@ For this hw you need to run following scripts:
     --port=5432 \
     --db=ny_taxi \
     --table_name=yellow_taxi_trips \
-    --url="https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv"```
+    --url="https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv"
+    ```
 4. ```bash
     docker run -it --network=pg-network \
     taxi_ingest:v001 \
@@ -33,7 +38,8 @@ For this hw you need to run following scripts:
     --db=ny_taxi \
     --table_name=taxi_zone_lookup \
     --url="https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv" \
-    --is_zone_data=1```
+    --is_zone_data=1
+    ```
 4. ```bash
     docker run -it \
         -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
@@ -41,6 +47,7 @@ For this hw you need to run following scripts:
         -p 8080:80 \
         --network=pg-network \
         --name pgadmin \
-        dpage/pgadmin4```
+        dpage/pgadmin4
+    ```
 
 Or just use `docker-compose up` and ingest data in PG and use PGAdmin.
